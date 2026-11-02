@@ -1,0 +1,11 @@
+[Unit]
+Description=Home SOC - SYN Probe Logging
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/soc-syn-probe.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

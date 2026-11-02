@@ -1,0 +1,4 @@
+index=soc_lab host="linux-target" source="/var/log/kern.log" "SYN_PROBE" earliest=-60m latest=now
+| rex field=_raw "SRC=(?<src>\S+) DST=(?<dst>\S+).*?DPT=(?<dpt>\d+)"
+| stats dc(dpt) as portas_distintas count as eventos by src, dst
+| sort - portas_distintas

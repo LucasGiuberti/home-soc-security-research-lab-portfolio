@@ -1,0 +1,5 @@
+index=soc_lab (EventCode=4625 OR EventID=4625)
+| bin _time span=5m
+| stats count as falhas by _time, host
+| where falhas >= 5
+| eval technique="T1110", status="NAO_VALIDADO: verificar extração de EventCode/EventID, usuario e IP"

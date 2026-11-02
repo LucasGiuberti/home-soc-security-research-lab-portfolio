@@ -1,0 +1,3 @@
+index=soc_lab host="linux-target" source="/var/log/kern.log" "SYN_PROBE" earliest=-24h latest=now
+| eval atraso_segundos=_indextime-_time
+| stats count as eventos min(atraso_segundos) as atraso_min_s median(atraso_segundos) as atraso_mediana_s max(atraso_segundos) as atraso_max_s by source

@@ -1,0 +1,3 @@
+index=soc_lab ("powershell.exe" OR "pwsh.exe")
+| table _time host source sourcetype Image CommandLine ParentImage User _raw
+| sort 0 - _time

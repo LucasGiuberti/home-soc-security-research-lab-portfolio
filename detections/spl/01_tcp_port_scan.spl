@@ -1,0 +1,6 @@
+index=soc_lab host="linux-target" source="/var/log/kern.log" "SYN_PROBE"
+| rex field=_raw "SRC=(?<src>\S+) DST=(?<dst>\S+).*?DPT=(?<dpt>\d+)"
+| bin _time span=5m
+| stats dc(dpt) as portas_distintas count as tentativas by _time, src, dst
+| where portas_distintas > 10
+| sort - portas_distintas

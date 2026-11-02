@@ -1,0 +1,3 @@
+index=soc_lab host="linux-target" "SYN_PROBE" earliest=-60m latest=now
+| stats count as eventos by source
+| sort - eventos

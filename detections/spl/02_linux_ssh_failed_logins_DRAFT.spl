@@ -1,0 +1,7 @@
+index=soc_lab host="linux-target" "Failed password"
+| rex field=_raw "Failed password for (?:invalid user )?(?<usuario>\S+) from (?<src>\d{1,3}(?:\.\d{1,3}){3})"
+| where isnotnull(src)
+| bin _time span=5m
+| stats count as falhas dc(usuario) as usuarios_distintos values(usuario) as usuarios by _time, host, src
+| where falhas >= 5
+| eval technique="T1110.001", status="NAO_VALIDADO"
