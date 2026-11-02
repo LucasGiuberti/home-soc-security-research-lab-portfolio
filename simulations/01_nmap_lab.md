@@ -26,6 +26,6 @@ date -Is
 
 **Reteste positivo em 01/11:** scan das portas 1–200 às 00h57, 200 portas e 200 eventos na busca manual, com alerta agendado às 01h05. Evidência: [E10](../incidents/INC-0001-port-scan/evidence/E10_alerta_0105.png).
 
-Outros testes propostos (11 portas, repetição da mesma porta, varredura atravessando duas janelas) estão descritos em [detections/tests/README.md](../detections/tests/README.md) e não foram marcados como realizados.
+Outros testes propostos (repetição da mesma porta e varredura atravessando duas janelas) estão descritos em [detections/tests/README.md](../detections/tests/README.md) e não foram marcados como realizados.
 
 Nos próximos experimentos, pretendo preservar a saída do Nmap, os horários, o evento bruto correspondente e o resultado SPL.
